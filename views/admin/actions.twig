@@ -1,0 +1,29 @@
+{% if page.status != 'published' %}
+<form id="form-publish"
+      method="post"
+      action="/admin/pages/{{ page.id }}/publish">
+    {{ csrf() }}
+    <input type="hidden" name="version_id" value="{{ page.current_version_id }}">
+    <button>
+        Publish
+    </button>
+</form>
+{% else %}
+<form id="form-unpublish"
+      method="post"
+      action="/admin/pages/{{ page.id }}/unpublish">
+    {{ csrf() }}
+    <button>
+        Unpublish
+    </button>
+</form>
+{% endif %}
+
+{# Set homepage #}
+{% if page.status == 'published' and not page.isHomepage %}
+<form method="post" action="/admin/pages/{{ page.id }}/homepage" style="display:inline">
+
+    {{ csrf() }}
+    <button type="submit">Set homepage</button>
+</form>
+{% endif %}

@@ -1,0 +1,127 @@
+{% extends "@pages/admin/_edit-layout.twig" %}
+
+{% block editor %}
+<input type="hidden" name="content_mode" value="blocks">
+<input type="hidden" name="blocks" id="blocks-input" value="">
+<div id="blocks-editor" class="card">
+    <div class="card-body">
+        <div class="row">
+
+            <!-- Block palette -->
+            <div class="col-md-3 border-end">
+
+                <h6 class="mb-3">Add block</h6>
+
+                <button
+                    id="add-text"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Text
+                </button>
+
+                <button
+                    id="add-hero"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Hero
+                </button>
+                <button
+                    id="add-image"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Image
+                </button>
+                <button
+                    id="add-heading"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Heading
+                </button>
+
+                <button
+                    id="add-button"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Button
+                </button>
+
+                <button
+                    id="add-columns"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Columns
+                </button>
+
+                <button
+                    id="add-spacer"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Spacer
+                </button>
+
+                <button
+                    id="add-divider"
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary w-100 mb-2">
+                    + Divider
+                </button>
+
+                <hr>
+
+            <h6 class="mb-3">Assets</h6>
+
+<button id="add-meta"
+ type="button"
+        class="btn btn-sm btn-outline-info w-100 mb-2">
+    + Meta / SEO
+</button>
+
+
+            <button id="add-css"
+ type="button"
+            class="btn btn-sm btn-outline-warning w-100 mb-2">
+                + CSS
+            </button>
+
+            <button id="add-js"
+             type="button"
+            class="btn btn-sm btn-outline-warning w-100 mb-2">
+                + JavaScript
+            </button>
+
+                <ul id="block-list" class="list-group small"></ul>
+            </div>
+
+            <!-- Block editor -->
+            <div class="col-md-4">
+                <h6 class="mb-3">Block settings</h6>
+                <div id="block-editor">
+                    <em class="text-muted">Select a block</em>
+                </div>
+            </div>
+
+            <!-- Preview -->
+            <div class="col-md-5 bg-light">
+                <h6 class="mb-3">Preview</h6>
+                <div id="preview" class="p-3 bg-white border"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+    window.PAGE_ID = {{ page.id }};
+    window.INITIAL_BLOCKS = {{ initialBlocks| json_encode | raw }};
+</script>
+<script src="/assets/js/multiform-ajax.js"></script>
+<script src="/assets/js/admin-page-common.js"></script>
+<script src="/assets/js/admin-page-blocks.js"></script>
+{% endblock %}
+
+
+

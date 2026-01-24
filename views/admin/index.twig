@@ -1,0 +1,114 @@
+{% extends "@pages/admin/layout.twig" %}
+
+{% block title %}Pages – Keystone{% endblock %}
+
+{% block header %}
+    <h2>Pages</h2>
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Homepage</th>
+            <th>Schedule</th>
+            <th class="text-end">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for page in pages %}
+        <tr>
+            <td>{{ page.title }}</td>
+
+            <td>
+    <span class="badge
+        {% if page.status == 'published' %}
+            bg-success
+        {% else %}
+            bg-secondary
+        {% endif %}
+    ">
+        {{ page.status }}
+    </span>
+</td>
+ <td>{% if page.is_homepage %}
+                <span class="badge bg-primary ms-2">
+                    Home
+                </span>
+            {% endif %}
+            </td>
+
+<td>
+{% if page.next_publication != null %}
+    <span class="badge bg-info">
+        Gepland {{ page.next_publication|date('d-m H:i') }}
+    </span>
+{% else %}
+    —
+{% endif %}
+</td>
+
+ <td class="text-end">
+<a href="{{ page.editUrl() }}"
+   class="btn btn-sm btn-outline-primary">
+    Edit
+</a>
+
+
+    <div class="btn-group">
+        <button type="button"
+                class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                data-bs-toggle="dropdown">
+            Meer
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+                <a class="dropdown-item"
+                   href="/{{ page.slug }}"
+                   target="_blank">
+                    Bekijken
+                </a>
+            </li>
+
+            {% if page.status == 'draft' %}
+            <li>
+                <form method="post"
+                      action="/admin/pages/{{ page.id }}/publish">
+                        {{ csrf() }}
+                        <input type="hidden" name="version_id" value="{{ page.published_version_id }}">
+                    <button class="dropdown-item text-success">
+                        Publiceren
+                    </button>
+                </form>
+            </li>
+            {% endif %}
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+                <form method="post"
+                      action="/admin/pages/{{ page.id }}/delete"
+                      onsubmit="return confirm('Pagina verwijderen?')">
+                   {{ csrf() }}
+                    <button class="dropdown-item text-danger">
+                        Verwijderen
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</td>
+</tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

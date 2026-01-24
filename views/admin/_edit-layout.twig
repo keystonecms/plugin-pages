@@ -1,0 +1,92 @@
+{% extends '@pages/admin/layout.twig' %}
+
+{% block title %}Edit page – Keystone{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    {% include "@pages/admin/_page_subnav.twig" %}
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h4 mb-1">{{ page.title }}</h1>
+            <small class="text-muted">/{{ page.slug }}</small>
+        </div>
+
+        <div class="btn-group">
+            <a href="/admin/pages/{{ page.id }}/edit-richtext"
+               class="btn btn-sm {{ mode == 'richtext' ? 'btn-primary' : 'btn-outline-primary' }}">
+                Rich text
+            </a>
+            <a href="/admin/pages/{{ page.id }}/edit-blocks"
+               class="btn btn-sm {{ mode == 'blocks' ? 'btn-primary' : 'btn-outline-primary' }}">
+                Blocks
+            </a>
+        </div>
+    </div>
+
+    <div class="alert alert-light py-2 mb-3 d-flex justify-content-between">
+        <span>Status: {{ page.status }}</span>
+        <span id="autosave-status" class="text-muted small">Saved</span>
+    </div>
+
+    <form id="form-page-edit"
+      method="post"
+      action="/admin/pages/{{ page.id }}/save"
+      data-reload="false">
+
+    {{ csrf() }}
+
+    <div class="alert alert-success d-none"></div>
+    <div class="alert alert-danger d-none"></div>
+
+<div class="card mb-3">
+    <div class="card-body">
+
+<div class="mb-3">
+      <label class="form-label">Titel</label>
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        value="{{ page.title }}"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Slug</label>
+      <input
+        type="text"
+        name="slug"
+        class="form-control"
+        value="{{ page.slug }}"
+      >
+    </div>
+
+        <div class="mb-3 col-6">
+    <label class="form-label">Template</label>
+    <select name="template" class="form-select">
+        <option value="default"{% if page.template == "default" %} selected{%endif%}>Default</option>
+        <option value="landing"{% if page.template == "landing" %} selected{%endif%}>Landing</option>
+        <option value="homepage"{% if page.template == "homepage" %} selected{%endif%}>Homepage</option>
+        <option value="full-width"{% if page.template == "full-width" %} selected{%endif%}>Full width</option>
+    </select>
+        </div>
+    </div>
+</div>
+
+    {% block editor %}{% endblock %}
+
+
+  <div class="card-footer text-end">
+    <button class="btn btn-primary my-2">
+      Opslaan
+    </button>
+  </div>
+</form>
+
+</div>
+
+
+{% endblock %}

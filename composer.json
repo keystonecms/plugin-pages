@@ -1,0 +1,14 @@
+{
+  "name": "keystone/plugin-pages",
+  "type": "keystone-plugin",
+  "autoload": {
+    "psr-4": {
+      "Keystone\\Plugin\\Pages\\": "src/"
+    }
+  },
+  "extra": {
+    "keystone": {
+      "plugin-class": "Keystone\\Plugin\\Pages\\Plugin"
+    }
+  }
+}

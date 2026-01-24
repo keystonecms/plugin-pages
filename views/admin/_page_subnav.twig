@@ -1,0 +1,48 @@
+<div class="card mb-4">
+  <div class="card-body d-flex justify-content-between align-items-center">
+
+    <div>
+      <h1 class="h5 mb-1">
+        Pagina: {{ page.title }}
+      </h1>
+      <div class="text-muted small">
+        ID {{ page.id }} · {{ page.status }}
+      </div>
+    </div>
+
+    <div class="btn-group" role="group">
+
+      <a href="{{ base_path }}{{ page.editUrl() }}"
+         class="btn btn-outline-secondary
+                {{ active == 'content' ? 'active' }}">
+        Content
+      </a>
+
+      <a href="{{ base_path }}/admin/seo/pages/{{ page.id }}"
+         class="btn btn-outline-secondary
+                {{ active == 'seo' ? 'active' }}">
+        SEO
+      </a>
+
+      <a href="{{ base_path }}/admin/internal-links/pages/{{ page.id }}"
+         class="btn btn-outline-secondary
+                {{ active == 'links' ? 'active' }}">
+        Internal links
+      </a>
+
+      <a href="{{ base_path }}/admin/pages/{{ page.id }}/versions"
+         class="btn btn-outline-secondary
+                {{ active == 'versions' ? 'active' }}">
+        Versions
+      </a>
+
+     <a href="{{ base_path }}/admin/pages/{{ page.id }}/publish"
+         class="btn btn-outline-secondary
+                {{ active == 'publish' ? 'active' }}">
+        Publish
+      </a>
+
+    </div>
+
+  </div>
+</div>

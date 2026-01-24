@@ -1,0 +1,56 @@
+{% extends '@pages/admin/layout.twig' %}
+
+{% block title %}Publish page – Keystone{% endblock %}
+
+{% block content %}
+
+{% include '@pages/admin/_page_subnav.twig' with {
+  page: page,
+  active: 'publish'
+} %}
+
+
+<div class="text-muted small mb-2">
+    <span id="autosave-status">
+        Not saved yet
+    </span>
+</div>
+
+<div class="row">
+
+    <div class="alert alert-success d-none"></div>
+    <div class="alert alert-danger d-none"></div>
+
+<div class="col-md-6 col-sm-12">
+
+<div class="card-body">
+
+<form id="form-schedule"
+      method="post"
+      action="/admin/pages/{{ page.id }}/schedule">
+
+      {{ csrf() }}
+
+      <input type="hidden" name="version_id" value="{{ page.published_version_id }}">
+
+    <label class="form-label">Publish at</label>
+    <input type="datetime-local"
+           name="publish_at"
+           class="form-control"
+           required>
+
+    <button class="btn btn-primary mt-2">
+        Schedule publish
+    </button>
+</form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="{{url}}/assets/js/multiform-ajax.js"></script>
+{% endblock %}

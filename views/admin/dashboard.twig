@@ -1,0 +1,149 @@
+{% extends "@pages/admin/layout.twig" %}
+
+{% block title %}{{ 'dashboard.dashboard'| trans }} – {{ 'sitename' | trans }}{% endblock %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="mb-4">
+        <h1 class="h3 mb-1">{{ 'dashboard.title'| trans }}</h1>
+        <p class="text-muted mb-0">
+            {{ 'dashboard.welcome' | trans({ name: auth.user.email }) }}
+        </p>
+    </div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <small class="text-muted">{{ 'dashboard.pages'| trans }}</small>
+                <h3 class="mb-0">{{ stats.pages }}</h3>
+                <span class="text-success small">+3 {{ 'dashboard.this_week'| trans }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <small class="text-muted">{{ 'dashboard.media_items'| trans }}</small>
+                <h3 class="mb-0">{{ stats.media }}</h3>
+                <span class="text-muted small">{{ 'dashboard.image_files'| trans }}<</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <small class="text-muted">{{ 'dashboard.users'| trans }}</small>
+                <h3 class="mb-0">{{ stats.users }}</h3>
+                <span class="text-muted small">{{ 'dashboard.admin_editors'| trans }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <small class="text-muted">{{ 'dashboard.plugins'| trans }}</small>
+                <h3 class="mb-0">{{ stats.plugins }}</h3>
+                <span class="text-warning small">1 {{ 'dashboard.updates'| trans }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card mb-4 shadow-sm">
+    <div class="card-header fw-semibold">
+       {{ 'dashboard.keystone_possibilities'| trans }}
+    </div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <h6>📄 {{ 'dashboard.pages'| trans }}</h6>
+                <p class="small text-muted mb-0">
+                    Bouw pagina’s met herbruikbare blocks en layouts.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>🧱 Content Blocks</h6>
+                <p class="small text-muted mb-0">
+                    Flexibele content via core en plugin blocks.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>🖼 Media beheer</h6>
+                <p class="small text-muted mb-0">
+                    Upload en gebruik media in editors en templates.
+                </p>
+            </div>
+
+            <div class="col-md-4">
+                <h6>🎨 Thema’s & layouts</h6>
+                <p class="small text-muted mb-0">
+                    Meerdere layouts per pagina, Twig-gebaseerd.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>🔌 Plugins</h6>
+                <p class="small text-muted mb-0">
+                    Uitbreidbaar via losse plugins zonder core impact.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h6>🔐 Rechten & locks</h6>
+                <p class="small text-muted mb-0">
+                    Page locks en gebruikersrollen.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+<div class="card shadow-sm">
+    <div class="card-header fw-semibold">
+       {{ 'dashboard.news'| trans }}
+    </div>
+    <div class="card-body">
+        <article class="mb-3">
+            <h6 class="mb-1">Keystone CMS {{ keystone.version }}</h6>
+            <p class="small text-muted mb-0">
+                Nieuwe block-architectuur en verbeterde media integratie.
+            </p>
+        </article>
+
+        <article>
+            <h6 class="mb-1">Roadmap Q1</h6>
+            <p class="small text-muted mb-0">
+                Data blocks, page locking en plugin marketplace.
+            </p>
+        </article>
+    </div>
+</div>
+
+</div>
+    <div class="col">
+<div class="card shadow-sm">
+    <div class="card-header fw-semibold">{{ 'dashboard.latest_activity'| trans }}</div>
+    <ul class="list-group list-group-flush small">
+        {% for item in activity %}
+            <li class="list-group-item">
+                {{ item.message }}
+                <span class="text-muted float-end">
+                    {{ item.occurredAt|date('H:i') }}
+                </span>
+            </li>
+        {% else %}
+            <li class="list-group-item text-muted">
+                Nog geen activiteit
+            </li>
+        {% endfor %}
+    </ul>
+      </div>
+   </div>
+</div>
+{% endblock %}

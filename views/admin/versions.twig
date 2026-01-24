@@ -1,0 +1,59 @@
+
+{% extends '@pages/admin/layout.twig' %}
+
+{% block title %}View versions – Keystone{% endblock %}
+
+{% block content %}
+
+{% include '@pages/admin/_page_subnav.twig' with {
+  page: page,
+  active: 'version'
+} %}
+
+
+ <div class="card-body">
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Version</th>
+            <th>Created</th>
+            <th>Actions</th>
+            <th>Preview</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for v in versions %}
+        <tr>
+            <td>#{{ v.id }}</td>
+            <td>{{ v.created_at }}</td>
+            <td>
+                <form id="form-revert-{{ v.id }}"
+                      method="post"
+                      action="/admin/pages/{{ pageId }}/versions/{{ v.id }}/revert">
+
+                    {{ csrf() }}
+
+                    <button class="btn btn-sm btn-warning">
+                        Revert
+                    </button>
+                </form>
+            </td>
+            <td>
+                <a href="/preview/pages/{{ pageId }}/versions/{{ v.id }}"
+   target="_blank"
+   class="btn btn-sm btn-outline-primary">
+    Preview
+</a>
+
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3"><em>No versions yet</em></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
