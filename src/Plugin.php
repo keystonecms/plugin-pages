@@ -1,15 +1,17 @@
 <?php
 
+namespace Keystone\Plugin\Pages;
+
 use Keystone\Core\Plugin\PluginInterface;
 use Psr\Container\ContainerInterface;
 use Slim\App;
 use function DI\autowire;
 use Slim\Views\Twig;
 
-use Keystone\Plugins\Pages\Domain\PageRepositoryInterface;
-use Keystone\Plugins\Pages\Domain\PageService;
-use Keystone\Plugins\Pages\Infrastructure\Persistence\PageRepository;
-use Keystone\Plugins\Pages\Domain\PagePolicy;
+use Keystone\Plugin\Pages\Domain\PageRepositoryInterface;
+use Keystone\Plugin\Pages\Domain\PageService;
+use Keystone\Plugin\Pages\Infrastructure\Persistence\PageRepository;
+use Keystone\Plugin\Pages\Domain\PagePolicy;
 use Keystone\Domain\Menu\Service\LinkResolver;
 use Keystone\Admin\Menu\AdminMenuRegistry;
 
