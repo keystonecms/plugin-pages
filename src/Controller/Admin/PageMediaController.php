@@ -1,12 +1,12 @@
 <?php
 
-namespace Keystone\Plugins\Pages\Controller\Admin;
+namespace Keystone\Plugin\Pages\Controller\Admin;
 
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Keystone\Plugins\Pages\Domain\PageService;
-use Keystone\Plugins\Media\Domain\MediaService;
+use Keystone\Plugin\Pages\Domain\PageService;
+use Keystone\Plugin\Media\Domain\MediaService;
 
 final class PageMediaController {
     public function __construct(

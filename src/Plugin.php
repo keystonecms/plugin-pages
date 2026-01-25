@@ -8,14 +8,16 @@ use Slim\App;
 use function DI\autowire;
 use Slim\Views\Twig;
 
+use Keystone\Plugin\Pages\Dashboard\PagesCountWidget;
 use Keystone\Plugin\Pages\Domain\PageRepositoryInterface;
 use Keystone\Plugin\Pages\Domain\PageService;
 use Keystone\Plugin\Pages\Infrastructure\Persistence\PageRepository;
 use Keystone\Plugin\Pages\Domain\PagePolicy;
 use Keystone\Domain\Menu\Service\LinkResolver;
 use Keystone\Admin\Menu\AdminMenuRegistry;
+use Keystone\Core\Dashboard\DashboardWidgetRegistry;
 
-return new class implements PluginInterface {
+final class Plugin implements PluginInterface {
 
     public function getName(): string {
         return 'Pages';
@@ -30,6 +32,10 @@ return new class implements PluginInterface {
         return 'Cores pages app description';
     }
 
+    public function getLoadOrder(): int {
+    return 999; // catch-all
+    }
+
 
 
 public function register(ContainerInterface $container): void {
@@ -42,6 +48,15 @@ public function register(ContainerInterface $container): void {
         PageService::class,
         autowire()
     );
+
+$container->set(PagesCountWidget::class, autowire());
+
+    $container
+        ->get(DashboardWidgetRegistry::class)
+        ->add(
+            $container->get(PagesCountWidget::class)
+        );
+
 }
 
 

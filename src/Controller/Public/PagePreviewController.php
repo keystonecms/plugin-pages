@@ -1,6 +1,6 @@
 <?php
 
-namespace Keystone\Plugins\Pages\Controller\Public;
+namespace Keystone\Plugin\Pages\Controller\Public;
 
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;

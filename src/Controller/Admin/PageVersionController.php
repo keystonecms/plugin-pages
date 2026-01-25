@@ -1,11 +1,11 @@
 <?php
 
-namespace Keystone\Plugins\Pages\Controller\Admin;
+namespace Keystone\Plugin\Pages\Controller\Admin;
 
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Keystone\Plugins\Pages\Domain\PageService;
+use Keystone\Plugin\Pages\Domain\PageService;
 use Keystone\Http\Controllers\BaseController;
 
 final class PageVersionController extends BaseController {

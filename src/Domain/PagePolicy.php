@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Keystone\Plugins\Pages\Domain;
+namespace Keystone\Plugin\Pages\Domain;
 
 use Keystone\Core\Auth\PolicyInterface;
 use Keystone\Domain\User\User;
-use Keystone\Plugins\Pages\Domain\Page;
+use Keystone\Plugin\Pages\Domain\Page;
 
 final class PagePolicy implements PolicyInterface
 {

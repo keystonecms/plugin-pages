@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @link      https://keystone-cms.com
  */
 
-namespace Keystone\Plugins\Pages\Domain;
+namespace Keystone\Plugin\Pages\Domain;
 
 final class Page
 {

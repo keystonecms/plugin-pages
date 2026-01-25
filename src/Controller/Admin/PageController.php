@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Keystone\Plugins\Pages\Controller\Admin;
+namespace Keystone\Plugin\Pages\Controller\Admin;
 
 use Keystone\Domain\User\CurrentUser;
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Keystone\Core\Http\Exception\ForbiddenException;
-use Keystone\Plugins\Pages\Domain\PageService;
+use Keystone\Plugin\Pages\Domain\PageService;
 use Keystone\Http\Controllers\BaseController;
 use Keystone\Security\CsrfToken;
 use Keystone\Core\Auth\AuthorityActivityService;
 
-use Keystone\Plugins\InternalLinks\Domain\InternalLinkService;
-use Keystone\Plugins\InternalLinks\Domain\LinkSubject;
+use Keystone\Plugin\InternalLinks\Domain\InternalLinkService;
+use Keystone\Plugin\InternalLinks\Domain\LinkSubject;
 
 final class PageController extends BaseController {
 

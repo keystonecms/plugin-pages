@@ -1,11 +1,11 @@
 <?php
 
-use Keystone\Plugins\Pages\Controller\Admin\PageController;
+use Keystone\Plugin\Pages\Controller\Admin\PageController;
 use Keystone\Http\Middleware\AuthMiddleware;
 use Keystone\Http\Middleware\CsrfMiddleware;
 use Keystone\Http\Middleware\PolicyMiddleware;
-use Keystone\Plugins\Pages\Controller\Admin\PageMediaController;
-use Keystone\Plugins\Pages\Controller\Admin\PageVersionController;
+use Keystone\Plugin\Pages\Controller\Admin\PageMediaController;
+use Keystone\Plugin\Pages\Controller\Admin\PageVersionController;
 
 $app->group('/admin/pages', function ($group) {
 $group->get('', [PageController::class , 'index'])->setName('admin.pages.index');
@@ -29,10 +29,5 @@ $group->post('/{id}/autosave',[PageController::class, 'autosave']);
 })
 ->add($container->get(CsrfMiddleware::class))
 ->add($container->get(AuthMiddleware::class));
-// ->add(new PolicyMiddleware(
-//             $container->get(PolicyResolver::class),
-//             $container->get(AuthService::class),
-//             'pages.view'
-//         ));
 
 ?>

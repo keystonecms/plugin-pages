@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Keystone\Plugins\Pages\Domain;
+namespace Keystone\Plugin\Pages\Domain;
 
 use Keystone\Domain\User\User;
-use Keystone\Plugins\Pages\Infrastructure\Persistence\PageRepository;
-use Keystone\Plugins\Pages\Infrastructure\Persistence\PageVersionRepository;
-use Keystone\Plugins\Pages\Infrastructure\Persistence\PagePublicationRepository;
-use Keystone\Plugins\Pages\Domain\Page;
-use Keystone\Plugins\Pages\Domain\PagePolicy;
+use Keystone\Plugin\Pages\Infrastructure\Persistence\PageRepository;
+use Keystone\Plugin\Pages\Infrastructure\Persistence\PageVersionRepository;
+use Keystone\Plugin\Pages\Infrastructure\Persistence\PagePublicationRepository;
+use Keystone\Plugin\Pages\Domain\Page;
+use Keystone\Plugin\Pages\Domain\PagePolicy;
 use Keystone\Domain\User\CurrentUser;
-use Keystone\Plugins\ContentBlocks\Service\BlockRenderer;
-use Keystone\Plugins\ContentBlocks\Service\BlockValidator;
+// use Keystone\Plugin\ContentBlocks\Service\BlockRenderer;
+// use Keystone\Plugin\ContentBlocks\Service\BlockValidator;
 
 final class PageService {
 
@@ -28,10 +28,10 @@ private const ALLOWED_TEMPLATES = [
         private PageRepository $repository,
         private PageVersionRepository $version,
         private PagePolicy $policy,
-        private BlockValidator $blockValidator,
+        // private BlockValidator $blockValidator,
         private PagePublicationRepository $publications,
         private CurrentUser $currentUser,
-        private BlockRenderer $blocks
+        // private BlockRenderer $blocks
         ) {}
 
 public function render(Page $page): string  {

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Keystone\Plugins\Pages\Controller\Public;
+namespace Keystone\Plugin\Pages\Controller\Public;
 
-use Keystone\Plugins\Pages\Domain\PageService;
+use Keystone\Plugin\Pages\Domain\PageService;
 use Slim\Views\Twig;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
 
 
-use Keystone\Plugins\Seo\Domain\SeoSubject;
-use Keystone\Plugins\Seo\Domain\SeoService;
+use Keystone\Plugin\Seo\Domain\SeoSubject;
+use Keystone\Plugin\Seo\Domain\SeoService;
 use Keystone\Domain\Menu\Repository\MenuRepositoryInterface;
 use Keystone\Domain\Menu\Service\LinkResolver;
 use Keystone\Core\Theme\ThemeManagerInterface;

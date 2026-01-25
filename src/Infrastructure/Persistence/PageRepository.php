@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Keystone\Plugins\Pages\Infrastructure\Persistence;
+namespace Keystone\Plugin\Pages\Infrastructure\Persistence;
 
 use PDO;
-use Keystone\Plugins\Pages\Domain\Page;
+use Keystone\Plugin\Pages\Domain\Page;
 
 final class PageRepository
 {
