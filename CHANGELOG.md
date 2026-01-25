@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/keystonecms/plugin-pages/compare/v1.0.0...v1.0.1) (2026-01-25)
+
+
+### Bug Fixes
+
+* corrected JSON ([713304a](https://github.com/keystonecms/plugin-pages/commit/713304abe06a5f63735babc0f9fe29bba8c89de7))
+* corrected plugin.json ([9dfa771](https://github.com/keystonecms/plugin-pages/commit/9dfa771f9ca62053499ebc675f8efd89ff39b701))
+
 # 1.0.0 (2026-01-25)
 
 
