@@ -1,5 +1,5 @@
 {
-  "name": "keystone/plugin-pages",
+  "name": "keystonecms/plugin-pages",
   "type": "keystone-plugin",
   "autoload": {
     "psr-4": {

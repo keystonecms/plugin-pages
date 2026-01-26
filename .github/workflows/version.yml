@@ -1,4 +1,5 @@
 name: Release
+version: 1.0.3
 
 on:
   push:
