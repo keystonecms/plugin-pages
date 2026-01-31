@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/keystonecms/plugin-pages/compare/v1.0.3...v1.0.4) (2026-01-31)
+
+
+### Bug Fixes
+
+* added readme item ([10c7b2a](https://github.com/keystonecms/plugin-pages/commit/10c7b2abf571224a6b87ddc16735f868be1ef6cc))
+
 ## [1.0.3](https://github.com/keystonecms/plugin-pages/compare/v1.0.2...v1.0.3) (2026-01-31)
 
 
