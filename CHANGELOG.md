@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/keystonecms/plugin-pages/compare/v1.0.2...v1.0.3) (2026-01-31)
+
+
+### Bug Fixes
+
+* changed composer.json to fit packagist ([64480ea](https://github.com/keystonecms/plugin-pages/commit/64480eae342104381f471e0061f8c9428214fa53))
+* removed version from version.yml ([a922aac](https://github.com/keystonecms/plugin-pages/commit/a922aac244ff387b5d53adbd148829984fe0056d))
+* version.yml removed tag version ([041d215](https://github.com/keystonecms/plugin-pages/commit/041d215066f91b46ba73665dcd2be2b6c5fcac2d))
+
 ## [1.0.2](https://github.com/keystonecms/plugin-pages/compare/v1.0.1...v1.0.2) (2026-01-25)
 
 
