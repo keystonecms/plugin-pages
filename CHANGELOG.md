@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/keystonecms/plugin-pages/compare/v1.0.4...v1.0.5) (2026-01-31)
+
+
+### Bug Fixes
+
+* check if git push works without errors ([c264ab0](https://github.com/keystonecms/plugin-pages/commit/c264ab0c5a9bf3daecf6cec6a24388fe598c9e75))
+
 ## [1.0.4](https://github.com/keystonecms/plugin-pages/compare/v1.0.3...v1.0.4) (2026-01-31)
 
 
